@@ -13,35 +13,26 @@ object MenuItem {
   type Pence = Int
 }
 
-trait MenuItem {
-  def name: String
-  def temperature: Temperature
-  def price: Pence
+sealed trait MenuItem {
+  val name: String
+  val temp: Temperature
+  val price: Pence
 }
 
-sealed abstract class Beverage extends MenuItem
-sealed abstract class Food extends MenuItem
 
-case class Coffee() extends Beverage {
-  val name = "Coffee"
-  val temperature = Hot
-  val price = 100
-}
+case class Beverage(name: String, temp: Temperature, price: Pence)
+  extends MenuItem
+case class Food(name: String, temp: Temperature, price: Pence)
+  extends  MenuItem
 
-case class Cola() extends Beverage {
-  val name = "Cola"
-  val temperature = Cold
-  val price = 50
-}
+object Coffee extends
+  Beverage("Coffee", Hot, 100)
 
-case class CheeseSandwich() extends Food {
-  val name = "Cheese Sandwich"
-  val temperature = Cold
-  val price = 200
-}
+object Cola extends
+  Beverage("Cola", Cold, 50)
 
-case class SteakSandwich() extends Food {
-  val name = "Steak Sandwich"
-  val temperature = Hot
-  val price = 450
-}
+object CheeseSandwich extends
+  Food("Cheese Sandwich", Cold, 200)
+
+object SteakSandwich extends 
+  Food("Steak Sandwich",  Hot, 450)

@@ -5,10 +5,10 @@ import cafeX._
 import cafeX.Order._
 
 class OrderTest extends AnyFunSuite with Matchers {
-  val suppliedOrder: Order = List(Cola(),Coffee(),CheeseSandwich())
-  val hotFoodOrder: Order = List(Cola(),Coffee(),SteakSandwich())
-  val bigOrder: Order = List.fill(10)(SteakSandwich())
-  val vBigOrder: Order = List.fill(30)(SteakSandwich())
+  val suppliedOrder: Order = List(Cola,Coffee,CheeseSandwich)
+  val hotFoodOrder: Order = List(Cola,Coffee,SteakSandwich)
+  val bigOrder: Order = List.fill(10)(SteakSandwich)
+  val vBigOrder: Order = List.fill(30)(SteakSandwich)
 
   test("standard bill test") {
     standardBill(suppliedOrder) should be(350)
