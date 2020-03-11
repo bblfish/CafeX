@@ -24,4 +24,17 @@ class OrderTest extends AnyFunSuite with Matchers {
     serviceCharge(vBigOrder) should be(2000)
   }
 
+  import Live._
+  
+  test("fizbuzz") {
+    fizbuz(0) should be(fb)
+    fizbuz(3) should be(fiz)
+    fizbuz(5) should be(buzz)
+    fizbuz(15) should be(fb)
+    fizbuz(30) should be(fb)
+    fizbuz(2) should be("2")
+
+  }
+
+
 }
